@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-900 text-white;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #050508;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #252540;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4f8ef7;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(15, 15, 26, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  .btn-primary {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200;
+    background: linear-gradient(135deg, #4f8ef7, #8b5cf6);
+    box-shadow: 0 4px 15px rgba(79, 142, 247, 0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(79, 142, 247, 0.4);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm text-gray-300 transition-all duration-200;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
+    @apply text-white;
+  }
+
+  .btn-danger {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200 text-white;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+  .btn-danger:hover {
+    background: rgba(239, 68, 68, 0.25);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl text-white text-sm placeholder-gray-500 transition-all duration-200 outline-none;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .input-field:focus {
+    border-color: rgba(79, 142, 247, 0.5);
+    box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.1);
+  }
+
+  .select-field {
+    @apply input-field appearance-none cursor-pointer;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 text-gray-400;
+  }
+  .sidebar-link:hover {
+    @apply text-white;
+    background: rgba(255,255,255,0.05);
+  }
+  .sidebar-link.active {
+    @apply text-white;
+    background: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(139,92,246,0.15));
+    border: 1px solid rgba(79,142,247,0.2);
+  }
+
+  .stat-card {
+    @apply glass-card cursor-default select-none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  }
+
+  .priority-low { @apply bg-emerald-500/15 text-emerald-400 border border-emerald-500/20; }
+  .priority-medium { @apply bg-blue-500/15 text-blue-400 border border-blue-500/20; }
+  .priority-high { @apply bg-orange-500/15 text-orange-400 border border-orange-500/20; }
+  .priority-urgent { @apply bg-red-500/15 text-red-400 border border-red-500/20; }
+
+  .status-todo { @apply bg-gray-500/15 text-gray-400 border border-gray-500/20; }
+  .status-in-progress { @apply bg-blue-500/15 text-blue-400 border border-blue-500/20; }
+  .status-review { @apply bg-purple-500/15 text-purple-400 border border-purple-500/20; }
+  .status-done { @apply bg-emerald-500/15 text-emerald-400 border border-emerald-500/20; }
+
+  .skeleton {
+    @apply rounded-xl animate-pulse;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .page-title {
+    @apply text-2xl font-display font-bold text-white;
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-white;
+  }
+}
